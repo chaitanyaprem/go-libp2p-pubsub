@@ -2728,7 +2728,7 @@ func TestGossipsubIdontwantSend(t *testing.T) {
 func TestGossipsubIdontwantReceive(t *testing.T) {
 	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()
-	hosts := getNetHosts(t, ctx, 3)
+	hosts := getDefaultHosts(t, 3)
 
 	msgID := func(pmsg *pb.Message) string {
 		// silly content-based test message-ID: just use the data as whole
@@ -2915,7 +2915,7 @@ func TestGossipsubIdontwantNonMesh(t *testing.T) {
 func TestGossipsubIdontwantSmallMessage(t *testing.T) {
 	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()
-	hosts := getNetHosts(t, ctx, 3)
+	hosts := getDefaultHosts(t, 3)
 
 	params := DefaultGossipSubParams()
 	params.IDontWantMessageThreshold = 16
@@ -3006,7 +3006,7 @@ func TestGossipsubIdontwantSmallMessage(t *testing.T) {
 func TestGossipsubIdontwantClear(t *testing.T) {
 	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()
-	hosts := getNetHosts(t, ctx, 3)
+	hosts := getDefaultHosts(t, 3)
 
 	msgID := func(pmsg *pb.Message) string {
 		// silly content-based test message-ID: just use the data as whole
